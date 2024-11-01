@@ -1,0 +1,35 @@
+def calculate_dna_distribution(dna_sequence):
+    # Initialize the counts
+    counts = {'A': 0, 'T': 0, 'C': 0, 'G': 0}
+
+    # Count each base in the sequence
+    for base in dna_sequence:
+        if base in counts:
+            counts[base] += 1
+
+    # Total number of bases
+    total_bases = sum(counts.values())
+
+    # Calculate percentages
+    percentages = {base: round((count / total_bases) * 100) for base, count in counts.items()}
+
+    # Print results
+    for base in ['A', 'T', 'C', 'G']:
+        print(f"{base}: {percentages[base]}%")
+
+# Given DNA sequence
+dna_sequence = (
+    "GTACGACGGAGTGTTATAAGATGGGAAATCGGATACCAGATGAAATTGTGGATCAGGTGCAAAAGTCGGC"
+    "AGATATCGTTGAAGTCATAGGTGATTATGTTCAATTAAAGAAGCAAGGCCGAAACTACTTTGGACTCTGT"
+    "CCTTTTCATGGAGAAAGCACACCTTCGTTTTCCGTATCGCCCGACAAACAGATTTTTCATTGCTTTGGCT"
+    "GCGGAGCGGGCGGCAATGTTTTCTCTTTTTTAAGGCAGATGGAAGGCTATTCTTTTGCCGAGTCGGTTTC"
+    "TCACCTTGCTGACAAATACCAAATTGATTTTCCAGATGATATAACAGTCCATTCCGGAGCCCGGCCAGAG"
+    "TCTTCTGGAGAACAAAAAATGGCTGAGGCACATGAGCTCCTGAAGAAATTTTACCATCATTTGTTAATAA"
+    "ATACAAAAGAAGGTCAAGAGGCACTGGATTATCTGCTTTCTAGGGGCTTTACGAAAGAGCTGATTAATGA"
+    "ATTTCAGATTGGCTATGCTCTTGATTCTTGGGACTTTATCACGAAATTCCTTGTAAAGAGGGGATTTAGT"
+    "GAGGCGCAAATGGAAAAAGCGGGTCTCCTGATCAGACGCGAAGACGGAAGCGGATATTTCGACCGCTTCA"
+    "GAAACCGTGTCATGTTTCCGATCCATGATCATCACGGGGCTGTTGTTGCTTTCTCAGGCAGGGCTCTTGG"
+)
+
+# Call the function
+calculate_dna_distribution(dna_sequence)
